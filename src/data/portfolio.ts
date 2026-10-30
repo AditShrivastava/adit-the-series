@@ -87,11 +87,46 @@ export type Project = {
   features: string[];
   metrics: Metric[];
   github?: string;
+  download?: string;
+  availabilityNote?: string;
   palette: Palette;
-  motif: 'shield' | 'flow' | 'tenants';
+  motif: 'shield' | 'flow' | 'tenants' | 'orb';
 };
 
 export const projects: Project[] = [
+  {
+    id: 'jarvis-business-strategy-assistant',
+    title: 'J.A.R.V.I.S.',
+    year: '2026',
+    genre: 'Business Strategy Assistant · AI Product Prototype · Marketing Management',
+    logline: 'A voice-first business strategy assistant developed for a Marketing Management course, designed to guide business discovery, support customer-segment analysis, and generate structured PDF strategy reports.',
+    stack: ['React', 'TypeScript', 'Node.js', 'Express', 'Groq API', 'Voice UI', 'PDF Export'],
+    build: [
+      'Built J.A.R.V.I.S. as a Marketing Management course project to support structured business and STP research workflows.',
+      'Designed guided business discovery and customer-segment comparison using a six-factor attractiveness matrix: size, growth, value, competition, accessibility, and strategic fit.',
+      'Connected a React and TypeScript interface to an Express backend that calls the Groq chat API while keeping API credentials in server-side environment variables.',
+      'Added browser microphone input with an editable wake phrase, spoken responses through optional ElevenLabs integration or browser speech synthesis, and downloadable PDF strategy reports.',
+      'Created a custom animated amber wireframe orb in Canvas 2D, with visual states for thinking, listening, and speaking.',
+    ],
+    features: [
+      'Guided business discovery and STP research support',
+      'Six-factor customer-segment attractiveness matrix with score totals and rationale',
+      'Voice interaction with configurable “Hey Jarvis” wake phrase',
+      'Groq-powered business reasoning through a server-side API',
+      'Optional ElevenLabs speech with browser speech-synthesis fallback',
+      'Structured, downloadable PDF strategy reports',
+      'Animated amber wireframe orb with interactive states',
+    ],
+    metrics: [
+      { value: '6-factor', label: 'segment attractiveness framework' },
+      { value: 'Voice + Text', label: 'interaction modes' },
+      { value: 'PDF', label: 'strategy report export' },
+    ],
+    download: `${import.meta.env.BASE_URL}assets/JARVIS-Business-AI-Source.zip`,
+    availabilityNote: 'Source code download. This is a locally run prototype, not a hosted live demo. It requires Node.js 20+ and a Groq API key; ElevenLabs credentials are optional. Generated reports format the assistant’s responses but do not independently verify business claims or browse external sources.',
+    palette: { from: '#1c1003', via: '#6b3c06', to: '#0a0806', accent: '#ffb547' },
+    motif: 'orb',
+  },
   {
     id: 'anatomy-of-marketing',
     title: 'Anatomy of Marketing',
@@ -320,7 +355,7 @@ export const skillEvidence: Record<string, string[]> = {
   Assembly: ['Programming Languages section of the resume'],
   WordPress: ['30+ doctor portfolio websites', 'Two client websites built and deployed'],
   'Microsoft Office': ['Tools section of the resume'],
-  'ChatGPT Prompt Engineering': ['AI-Assisted Workflows section of the resume'],
+  'ChatGPT Prompt Engineering': ['AI-Assisted Workflows section of the resume', 'J.A.R.V.I.S. business strategy assistant'],
   'Product Marketing': ['JAGSoM PGDM focus'],
   'Growth Strategy': ['JAGSoM PGDM focus'],
   'Marketing Major': ['JAGSoM PGDM specialization'],
@@ -457,11 +492,28 @@ export const seasons: Season[] = [
       },
     ],
   },
+  {
+    number: 5,
+    title: 'Building with AI',
+    period: '2026',
+    synopsis: 'A voice-first business strategy assistant developed as a Marketing Management course project, bringing AI, customer-segment analysis, voice interaction, and report generation together.',
+    episodes: [
+      {
+        code: 'S05 E01',
+        title: 'J.A.R.V.I.S. — The Business Strategist',
+        description: 'Built a voice-first assistant to guide business discovery and support STP research, customer-segment comparison, and structured PDF strategy reports.',
+        tags: ['AI Product Prototype', 'STP Research', 'Groq', 'Voice UI'],
+        runtime: '2026 · Marketing Management course project',
+        palette: amber,
+      },
+    ],
+  },
 ];
 
 export type TopPick = { label: string; title: string; detail: string; palette: Palette };
 
 export const topPicks: TopPick[] = [
+  { label: 'AI product prototype', title: 'J.A.R.V.I.S.', detail: 'Voice-first business strategy assistant · STP research · PDF reports', palette: amber },
   { label: 'Current program', title: 'PGDM at JAGSoM', detail: 'Growth & Product Marketing · 2026–2028 expected', palette: violet },
   { label: 'Primary career focus', title: 'Product Marketing', detail: 'Combining technology context with customer and market understanding', palette: crimson },
   { label: 'Strategy focus', title: 'Growth Marketing & Strategy', detail: 'Marketing major · Business Analytics minor', palette: ocean },
@@ -511,6 +563,12 @@ export const introSlides: IntroSlide[] = [
     kicker: 'Design recognition',
     title: 'Registered Product Design',
     lines: ['Garbage Collector · Registration No. 397299-001', 'Faculty-supervised project registered under the Designs Act, 2000'],
+  },
+  {
+    kicker: 'AI & Marketing Management',
+    title: 'J.A.R.V.I.S. — Business Strategy Assistant',
+    lines: ['A voice-first assistant built as a Marketing Management course project', 'Guided business discovery · customer-segment analysis · PDF strategy reports', 'React · TypeScript · Express · Groq API · Voice interface'],
+    chips: ['AI Product Prototype', 'STP Research', 'Voice UI'],
   },
   {
     kicker: 'Current focus',
